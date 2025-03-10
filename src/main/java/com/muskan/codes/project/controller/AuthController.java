@@ -46,13 +46,15 @@ public class AuthController {
     Users user = new Users();
     user.setEmail(request.getEmail());
     user.setPassword(request.getPassword());
-    user.setName(request.getName());  // Ensure 'name' is set
+    user.setName(request.getName()); 
     user.setRole(request.getRole());
-    //user.setPhoneNumber(request.getPhoneNumber());
+
 
     userRepository.save(user);
 
-    return ResponseEntity.ok("User registered successfully!");
+    return ResponseEntity.ok("{\n" + //
+                "    \"respponse\":\"User registered successfully!\"\n" + //
+                "}");
 }
 
     
