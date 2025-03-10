@@ -1,0 +1,121 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: #fff;
+    text-align: center;
+}
+
+/* Header */
+.header {
+    background: #ff6f61;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #513636;
+}
+
+/* 3D Banner Effect */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    perspective: 1000px; /* Adds 3D effect */
+    background: url('/images/shoe-banner.png') no-repeat center center/cover;
+    transform-style: preserve-3d;
+}
+
+.hero h1, .hero p {
+    transform: translateZ(30px); /* Moves text forward for a 3D feel */
+}
+
+/* Products Section */
+.products {
+    padding: 40px 20px;
+}
+
+.products h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product {
+    background: #fff;
+    color: #333;
+    padding: 20px;
+    width: 250px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+.product img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.product h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.product p {
+    font-size: 14px;
+    color: #666;
+}
+
+.product span {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff6f61;
+}
+
+/* Footer */
+.footer {
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    margin-top: 20px;
+}
