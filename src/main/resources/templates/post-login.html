@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Colorful Store</title>
+    <link rel="stylesheet" href="/css/explore.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+        // Simulating user login check
+        document.addEventListener("DOMContentLoaded", function () {
+            const username = localStorage.getItem("username") || "User";
+            document.getElementById("welcome-msg").innerText = `Welcome, ${username}!`;
+        });
+
+        function logout() {
+            localStorage.removeItem("username");
+            window.location.href = "/login";
+        }
+    </script>
+    <style>
+        .btn:hover {
+    background: #e65149;
+}
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="logo">Colorful Store</div>
+        <div class="nav">
+            <a href="/home">Home</a>
+            <a href="/explore">Explore</a>
+            <a href="#">New Arrivals</a>
+            <a href="#">Trending</a>
+            <button onclick="logout()" class="btn" style="font-size: 18px; ">Logout</button>
+        </div>
+    </div>
+
+    <!-- DASHBOARD WELCOME -->
+    <div class="explore-banner">
+        <h1 id="welcome-msg">Welcome, User!</h1>
+        <h2 class="subheading">Discover the best styles curated for you</h2>
+    </div>
+
+    <!-- EXPLORE PRODUCTS -->
+    <div class="explore-grid">
+        <div class="item">
+            <img src="/images/mens-jacket.jpg" alt="Men's Jacket">
+            <h3>Men's Jacket</h3>
+            <p>$79.99</p>
+            <button class="btn">Explore</button>
+        </div>
+        <div class="item">
+            <img src="/images/women-dress.jpg" alt="Women's Dress">
+            <h3>Women's Dress</h3>
+            <p>$59.99</p>
+            <button class="btn">Explore</button>
+        </div>
+        <div class="item">
+            <img src="/images/stylishShoes.png" alt="Sneakers">
+            <h3>Classic Sneakers</h3>
+            <p>$89.99</p>
+            <a href="/shoes" class="btn">Explore</a>
+        </div>
+        <div class="item">
+            <img src="/images/accessories.jpg" alt="Accessories">
+            <h3>Trendy Accessories</h3>
+            <p>$29.99</p>
+            <button class="btn">Explore</button>
+        </div>
+        <div class="item">
+            <img src="/images/SmartWatch.jpeg" alt="Smartwatch">
+            <h3>Luxury Smartwatch</h3>
+            <p>$199.99</p>
+            <button class="btn">Explore</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2025 Colorful Store | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

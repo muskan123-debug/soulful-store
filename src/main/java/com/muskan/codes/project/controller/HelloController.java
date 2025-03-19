@@ -30,4 +30,14 @@ public class HelloController {
     public String signup() {
         return "signup";
     }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/postlogin")
+    public String postlogin() {
+        return "post-login";
+    }
 }

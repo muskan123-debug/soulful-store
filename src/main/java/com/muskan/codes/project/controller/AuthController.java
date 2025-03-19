@@ -1,5 +1,9 @@
 package com.muskan.codes.project.controller;
 
+import com.muskan.codes.project.entities.SignupRequest;
+import com.muskan.codes.project.entities.Users;
+import com.muskan.codes.project.repositories.UsersRepository;
+import com.muskan.codes.project.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,10 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.muskan.codes.project.entities.SignupRequest;
-import com.muskan.codes.project.entities.Users;
-import com.muskan.codes.project.repositories.UsersRepository;
-import com.muskan.codes.project.service.AuthService;
 
 @RestController
 @RequestMapping("/auth")
@@ -28,7 +28,7 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public String signup(@RequestBody SignupRequest request) {
+    public ResponseEntity<String> signup(@RequestBody SignupRequest request) {
         return authService.signup(request);
     }
 
@@ -52,9 +52,7 @@ public class AuthController {
 
     userRepository.save(user);
 
-    return ResponseEntity.ok("{\n" + //
-                "    \"respponse\":\"User registered successfully!\"\n" + //
-                "}");
+    return ResponseEntity.ok("{\n" + "\"respponse\":\"User registered successfully!\"\n" + "}");
 }
 
     

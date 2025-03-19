@@ -1,15 +1,17 @@
 package com.muskan.codes.project.service;
 
-import java.util.Optional;
-
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
-
 import com.muskan.codes.project.entities.SignupRequest;
 import com.muskan.codes.project.entities.UserDetails;
 import com.muskan.codes.project.entities.Users;
 import com.muskan.codes.project.repositories.UserDetailsRepository;
 import com.muskan.codes.project.repositories.UsersRepository;
+import java.util.Optional;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+
+
 
 @Service
 public class AuthService {
@@ -23,9 +25,9 @@ public class AuthService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public String signup(SignupRequest request) {
+    public ResponseEntity<String> signup(SignupRequest request) {
         if (usersRepository.findByEmail(request.getEmail()).isPresent()) {
-            return "Email already exists!";
+            return ResponseEntity.ok("{\n" + "\"respponse\":\"User already exixtes!\"\n" +  "}");
         }
 
         // Save user credentials in MySQL
@@ -44,7 +46,8 @@ public class AuthService {
         userDetails.setPhoneNumber(request.getPhoneNumber());
         userDetailsRepository.save(userDetails);
 
-        return "User registered successfully!";
+        //return "User registered successfully!";
+        return ResponseEntity.ok("{\n" + "\"respponse\":\"User registered successfully!\"\n" +  "}");
     }
 
     public String login(String email, String password) {
@@ -52,7 +55,7 @@ public class AuthService {
 
         if (userOpt.isPresent()) {
             Users user = userOpt.get();
-            if (passwordEncoder.matches(password, user.getPassword())) {
+            if (user.getPassword().equals(password) && user.getEmail().equals(email)) {
                 return "Login successful!";
             }
         }
